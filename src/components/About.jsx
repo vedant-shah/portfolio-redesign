@@ -39,7 +39,7 @@ function About() {
 
   }, []);
   return (
-    <div className="about-main-wrapper container relative mx-auto  flex  h-[100vh] bg-[#09090b] text-white">
+    <div className="about-main-wrapper container relative mx-auto  flex  h-[100vh] bg-[#e9e9e9] dark:bg-[#09090b]  text-black dark:text-white">
       <div className="flex flex-col items-center justify-center w-1/2 ">
         <img
           src={Pfp}
@@ -65,7 +65,7 @@ function About() {
             {" "}
             Beyond tech, I love diving into the world of sports, fueling my
             passion for competition and teamwork.
-            <span style={{ color: "#bdfa72" }}>
+            <span className="dark:text-[#93ffcc] text-[#fe7c7b]">
               {" "}
               Let's connect and explore new horizons together!
             </span>

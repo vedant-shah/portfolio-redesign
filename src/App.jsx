@@ -55,20 +55,20 @@ function App() {
     });
   }, []);
   return (
-    <div className="w-[100vw] bg-[#09090b]">
-      <h1 className="counter">0</h1>
-      <h1 className="counter-1">SIT BACK. RELAX.</h1>
+    <div className="w-[100vw] bg-[#e9e9e9] dark:bg-[#09090b]">
+      <h1 className="counter dark:text-[#bcbcc4] text-[#1a1a1a]">0</h1>
+      <h1 className="counter-1 dark:text-[#bcbcc4] text-[#1a1a1a]">SIT BACK. RELAX.</h1>
       <div className="overlay">
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
+        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
+        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
+        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
+        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
+        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
+        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
+        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
+        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
+        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
+        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
       </div>
       <Hero />
       <About />

@@ -7,7 +7,7 @@ import { RxArrowTopRight } from "react-icons/rx";
 
 function Work() {
   return (
-    <div className="container relative mx-auto flex w-[100vw] flex-col items-center  justify-center bg-[#09090b] text-white">
+    <div className="container relative mx-auto flex w-[100vw] flex-col items-center  justify-centerbg-[#e9e9e9] dark:bg-[#09090b]  text-black dark:text-white">
       <h1
         className="my-12 title"
         style={{

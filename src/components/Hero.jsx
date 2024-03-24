@@ -1,9 +1,12 @@
 import React from "react";
 import { RxArrowTopRight } from "react-icons/rx";
+import Switcher from "./Switcher";
+
 function Hero() {
   return (
-    <div className="container relative mx-auto flex  h-[100vh] flex-col bg-[#09090b] py-12 text-white ">
-      <div className="flex justify-end w-full">
+    <div className="container relative mx-auto flex  h-[100vh] flex-col py-12 bg-[#e9e9e9] dark:bg-[#09090b]  text-black dark:text-white ">
+      <div className="flex items-center justify-between w-full">
+        <Switcher />
         <div className="flex items-center say-hello">
           <a
             className="underline hero-sub underline-offset-4"
@@ -23,12 +26,12 @@ function Hero() {
         className="flex flex-col items-start justify-center "
         style={{ lineHeight: "12vw", flexGrow: "1" }}>
         <h1
-          className="hero text-[#ffcaca] overflow-hidden"
+          className="hero text-[#fe7c7b] dark:text-[#ffcaca] overflow-hidden"
           style={{ fontFamily: "SuisseIntl", fontSize: "13vw", letterSpacing: '-3px' }}>
           I'm Vedant
         </h1>
         <h1
-          className="hero text-[#ffcaca] overflow-hidden"
+          className="hero text-[#fe7c7b] dark:text-[#ffcaca] overflow-hidden"
           style={{ fontFamily: "SuisseIntl", fontSize: "13vw" }}>
           Portfolio/24
         </h1>

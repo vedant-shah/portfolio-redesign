@@ -6,7 +6,7 @@ function Connect() {
 
 
   return (
-    <div className="connect-wrapper-main container relative mx-auto flex h-[100vh]  flex-col bg-[#09090b] text-white">
+    <div className="connect-wrapper-main container relative mx-auto flex h-[100vh]  flex-col bg-[#e9e9e9] dark:bg-[#09090b]  text-black dark:text-white">
       <div className="flex items-center justify-center overflow-hidden text-center spacer h-1/3">
         <h1
           className=""
@@ -21,12 +21,11 @@ function Connect() {
       </div>
       <div className="h-1/3">
         <h1
-          className="italic connect-text-main "
+          className="italic connect-text-main text-[#08dc90] dark:text-[#93ffcc] "
           style={{
             fontFamily: "Generator Bold",
             fontSize: "4vw",
             letterSpacing: "-1px",
-            color: "#d8ffc4",
           }}>
           A user interface is like a joke. If you have to explain it, it's not
           that good.
@@ -34,7 +33,7 @@ function Connect() {
       </div>
       <div className="flex flex-col items-end justify-around w-full h-1/3">
         <h1
-          className=" hover:underline connect-text-mail"
+          className="underline connect-text-mail"
           style={{
             fontFamily: "Generator Bold",
             fontSize: "4.5vw",
@@ -50,7 +49,7 @@ function Connect() {
         <div className="flex w-full">
           <div className="flex justify-around w-1/2 social-wrapper">
             <h1
-              className="hover:underline"
+              className="underline"
               style={{
                 fontFamily: "Generator Bold",
                 fontSize: "2vw",
@@ -62,7 +61,7 @@ function Connect() {
               </a>
             </h1>
             <h1
-              className="hover:underline"
+              className="underline"
               style={{
                 fontFamily: "Generator Bold",
                 fontSize: "2vw",
@@ -76,7 +75,7 @@ function Connect() {
           </div>
           <div className="flex justify-around w-1/2 social-wrapper">
             <h1
-              className="hover:underline"
+              className="underline"
               style={{
                 fontFamily: "Generator Bold",
                 fontSize: "2vw",
@@ -88,7 +87,7 @@ function Connect() {
               </a>
             </h1>
             <h1
-              className="hover:underline"
+              className="underline"
               style={{
                 fontFamily: "Generator Bold",
                 fontSize: "2vw",

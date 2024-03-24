@@ -24,7 +24,6 @@ body {
 .bar {
   width: 10vw;
   height: 105vh;
-  background-color: #161617;
 }
 .counter {
   position: fixed;
@@ -34,7 +33,6 @@ body {
   justify-content: flex-end;
   align-items: flex-start;
   z-index: 1000;
-  color: #bcbcc4;
   font-size: 25vw;
   font-family: "Generator Bold";
   right: 15px;
@@ -50,7 +48,6 @@ body {
   justify-content: flex-end;
   align-items: flex-end;
   z-index: 1000;
-  color: #bcbcc4;
   font-size: 7vw;
   letter-spacing: -5px;
   font-family: "Generator Bold";
@@ -100,4 +97,8 @@ body {
   #projx-arrow {
     display: block;
   }
+}
+
+.word {
+  overflow-y: hidden !important;
 }

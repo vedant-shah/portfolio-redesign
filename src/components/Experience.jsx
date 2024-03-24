@@ -31,7 +31,7 @@ function Experience() {
     },
   ];
   return (
-    <div className="container relative mx-auto flex h-[100vh] w-[100vw] flex-col justify-center bg-[#09090b] text-white">
+    <div className="container relative mx-auto flex h-[100vh] w-[100vw] flex-col justify-center bg-[#e9e9e9] dark:bg-[#09090b]  text-black dark:text-white">
       <div className="flex items-center justify-center w-full" style={{}}>
         <div className="flex flex-col w-full">
           <h1
