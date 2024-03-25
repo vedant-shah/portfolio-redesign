@@ -10,6 +10,21 @@
   .hero-sub-1 {
     font-size: 30px !important;
   }
+  #scrollingText {
+    font-size: 76px !important;
+  }
+  .connect-text-mail {
+    font-size: 70px !important;
+  }
+  .connect-text-main {
+    font-size: 60px !important;
+    text-align: center;
+    line-height: 90px;
+  }
+  .animate-text {
+    font-size: 38px !important;
+    line-height: 45px !important;
+  }
 }
 
 /* portrait screens */
