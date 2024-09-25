@@ -37,7 +37,7 @@ function Experience() {
           <h1
             className="my-12 title"
             style={{
-              fontFamily: "tth",
+              fontFamily: "SuisseIntl",
               fontSize: "6vw",
               letterSpacing: "-3px",
             }}>
