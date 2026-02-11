@@ -6,6 +6,7 @@ import Experience from "./components/Experience";
 import Work from "./components/Work";
 import Connect from "./components/Connect";
 import { gsap } from "gsap";
+import { content } from "./config/content";
 
 function App() {
 
@@ -15,13 +16,13 @@ function App() {
       let current = 0;
 
       function updateCounter() {
-        current += Math.floor(Math.random() * 10) + 1;
+        current += Math.floor(Math.random() * 14) + 1;
         if (current >= 100) {
           current = 100;
           return
         }
         counter.innerHTML = current + '%';
-        let delay = 55;
+        let delay = 30;
         setTimeout(updateCounter, delay);
       }
 
@@ -30,20 +31,20 @@ function App() {
 
     startLoader();
 
-    gsap.to('.counter', 0.25, {
-      delay: 2,
+    gsap.to('.counter', 0.2, {
+      delay: 1.1,
       opacity: 0,
     });
-    gsap.to('.counter-1', 0.25, {
-      delay: 2,
+    gsap.to('.counter-1', 0.2, {
+      delay: 1.1,
       opacity: 0,
     });
 
-    gsap.to('.bar', 1, {
-      delay: 2.5,
+    gsap.to('.bar', 0.6, {
+      delay: 1.3,
       height: 0,
       stagger: {
-        amount: 0.4
+        amount: 0.25
       },
       ease: 'power4.inOut',
       onComplete: () => {
@@ -57,7 +58,9 @@ function App() {
   return (
     <div className="w-[100vw] bg-[#e9e9e9] dark:bg-[#09090b]">
       <h1 className="counter dark:text-[#bcbcc4] text-[#1a1a1a]">0</h1>
-      <h1 className="counter-1 dark:text-[#bcbcc4] text-[#1a1a1a]">SIT BACK. RELAX.</h1>
+      <h1 className="counter-1 dark:text-[#bcbcc4] text-[#1a1a1a]">
+        {content.loader.tagline}
+      </h1>
       <div className="overlay">
         <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
         <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>

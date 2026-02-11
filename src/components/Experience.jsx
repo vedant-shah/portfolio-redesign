@@ -1,37 +1,10 @@
 import React from "react";
-import Neeli from "/images/neeli-logo.png";
-import Bmun from "/images/bmun-logo.png";
-import Niv from "/images/nivetti-logo.webp";
-import Msr from "/images/msruas-logo.png";
+import { content } from "../config/content";
+
 function Experience() {
-  const works = [
-    {
-      title: "SDE",
-      company: "Nivetti",
-      duration: "2024",
-      logo: Niv,
-    },
-    {
-      title: "SDE Intern",
-      company: "Neelitech",
-      duration: "2022/23",
-      logo: Neeli,
-    },
-    {
-      title: "Head of IT",
-      company: "BMUN",
-      duration: "2019",
-      logo: Bmun,
-    },
-    {
-      title: "Summer Intern",
-      company: "MSRUAS",
-      duration: "2018",
-      logo: Msr,
-    },
-  ];
+  const { experience } = content;
   return (
-    <div className="container relative mx-auto flex h-[100vh] w-[100vw] flex-col justify-center bg-[#e9e9e9] dark:bg-[#09090b]  text-black dark:text-white">
+    <div className="container relative mx-auto flex min-h-[100vh] w-[100vw] flex-col justify-center bg-[#e9e9e9] px-12 text-black  dark:bg-[#09090b] dark:text-white">
       <div className="flex items-center justify-center w-full" style={{}}>
         <div className="flex flex-col w-full">
           <h1
@@ -41,27 +14,28 @@ function Experience() {
               fontSize: "6vw",
               letterSpacing: "-3px",
             }}>
-            Experience
+            {experience.title}
           </h1>
-          {works.map((work, index) => (
+          {experience.items.map((work, index) => (
             <React.Fragment key={index}>
               <div className="flex items-center justify-between w-full my-8">
                 <div className="flex items-center ">
                   <img
-                    src={work.logo}
+                    src={work.logoSrc}
                     className="inline rounded me-6 experience-logo"
                     style={{ height: "64px", width: "64px" }}
                     alt={work.company}
                   />
-                  <h1 className="experience-text" style={{ fontFamily: "PolySans", fontSize: "1.5vw", textAlign: "start" }}>
+                  <h1
+                    className="experience-text geist-mono text-xl"
+                    style={{ textAlign: "start" }}>
                     {work.company} - {work.title}
                   </h1>
                 </div>
                 <div>
-                  <h1 className="experience-text"
+                  <h1
+                    className="experience-text geist-mono text-xl"
                     style={{
-                      fontFamily: "PolySans",
-                      fontSize: "1.5vw",
                       color: "gray",
                       textAlign: "end",
                     }}>
@@ -69,7 +43,7 @@ function Experience() {
                   </h1>
                 </div>
               </div>
-              {index < works.length - 1 && (
+              {index < experience.items.length - 1 && (
                 <hr style={{ borderTop: "1px solid rgb(35, 38, 39)" }} />
               )}
             </React.Fragment>

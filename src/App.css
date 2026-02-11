@@ -1,17 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
 .inter {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   font-variation-settings: "slnt" 0;
-}
-
-body {
-  width: 100vw;
-  overflow-x: hidden;
-}
-::-webkit-scrollbar {
-  display: none;
 }
 
 .overlay {
@@ -53,52 +68,23 @@ body {
   font-family: "Generator Bold";
 }
 
-* {
-  overflow-x: hidden;
-}
-
-.spacer h1 {
-  position: absolute;
-  /* color: transparent; */
-  width: 500vw;
-  font-size: 5em;
-  font-weight: 900;
-  font-family: "Raleway";
-}
-
-#set-arrow {
-  display: none;
-}
-#set-container:hover {
-  #set-arrow {
-    display: block;
-  }
-}
-#wtn-arrow {
-  display: none;
-}
-#wtn-container:hover {
-  #wtn-arrow {
-    display: block;
-  }
-}
-#crums-arrow {
-  display: none;
-}
-#crums-container:hover {
-  #crums-arrow {
-    display: block;
-  }
-}
+#set-arrow,
+#wtn-arrow,
+#crums-arrow,
 #projx-arrow {
   display: none;
 }
-#projx-container:hover {
-  #projx-arrow {
-    display: block;
-  }
+#set-container:hover #set-arrow,
+#wtn-container:hover #wtn-arrow,
+#crums-container:hover #crums-arrow,
+#projx-container:hover #projx-arrow {
+  display: block;
 }
 
 .word {
-  overflow-y: hidden !important;
+  overflow: hidden !important;
+}
+
+.container {
+  overflow: hidden;
 }

@@ -23,14 +23,17 @@
   src: url("./assets/fonts/rightgrotesk-webfont.woff2");
 }
 @font-face {
-  font-family: "tth";
-  src: url("./assets/fonts/tth-webfont.woff2");
-}
-@font-face {
   font-family: "Generator Bold";
   src: url("https://assets.website-files.com/6470f4e94ea1a1165d1eb1ad/6470f536abd315329bfeda71_Generator-Bold.woff")
     format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
+}
+
+.geist-mono {
+  font-family: "Geist Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
