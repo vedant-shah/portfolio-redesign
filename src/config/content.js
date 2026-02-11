@@ -112,7 +112,7 @@ export const content = {
       { name: "linkedin", url: "http://linkedin.com/in/vedant-shah2001" },
       {
         name: "cv",
-        url: "https://drive.google.com/file/d/1EA-YCHe0n7TZly1B-4VrQj8kDbjdYLhK/view?usp=sharing",
+        url: "https://drive.google.com/file/d/1jWmhFIqBRPGEkEZKoSaUBUYwJ5bW_l-1/view?usp=drive_link",
       },
     ],
   },
