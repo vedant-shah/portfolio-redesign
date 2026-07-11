@@ -1,3 +1,20 @@
+const currentYear = new Date().getFullYear();
+
+// Age from date of birth (10 Sep 2001), recomputed on each page load.
+const BIRTH_DATE = new Date(2001, 8, 10);
+const age = (() => {
+  const today = new Date();
+  let years = today.getFullYear() - BIRTH_DATE.getFullYear();
+  const monthDiff = today.getMonth() - BIRTH_DATE.getMonth();
+  if (
+    monthDiff < 0 ||
+    (monthDiff === 0 && today.getDate() < BIRTH_DATE.getDate())
+  ) {
+    years -= 1;
+  }
+  return years;
+})();
+
 export const content = {
   loader: {
     // The counter value itself is driven by JS.
@@ -9,9 +26,9 @@ export const content = {
       email: "vedantshah2001@gmail.com",
     },
     headline: "I'm Vedant",
-    subheadline: "Portfolio/26",
+    subheadline: `Portfolio/${String(currentYear).slice(-2)}`,
     locationLine: "Based out of Blr, India",
-    lastUpdateLine: "Last Update ◆ 2026",
+    lastUpdateLine: `Last Update ◆ ${currentYear}`,
     tagline: "— Indie Developer, helping brands create something EPIC!",
   },
   about: {
@@ -19,20 +36,26 @@ export const content = {
       src: "/images/pfp.webp",
       alt: "Vedant's profile picture",
     },
-    intro:
-      "Hey. I'm Vedant, and I like tech. I'm exploring the latest web based technologies. I have an immense appreciation for minimalism and I enjoy tackling problems from a holistic approach while also getting down to the nitty-gritty.",
+    intro: `Hey, I'm Vedant. I'm ${age}, based in Bangalore, working as an AI Engineer at MontyCloud, and I've been freelancing and shipping products for the last 3–4 years. My philosophy is simple — tech is just a means to an end.`,
     outroMuted:
-      "Beyond tech, I love sports. It fuels my passion for competition and teamwork.",
-    outroHighlight: "Let’s make the complex feel effortless, together!",
+      "I don't claim to know every algorithm or tool out there, but that never stops me. Syntax can be Googled and logic figured out; what can't be taught is the obsession to get things done.",
+    outroHighlight: "What I promise is High Agency.",
   },
   work: {
     title: "Selected Work",
     viewLabel: "View",
     projects: [
       {
+        title: "Saarthi",
+        year: "2026",
+        imageSrc: "/images/saarthi.webp",
+        link: "https://github.com/vedant-shah/saarthi",
+        alt: "Saarthi — one person hosts it, the whole family talks to it",
+      },
+      {
         title: "Hunch",
         year: "2025",
-        imageSrc: "/images/hunch.png",
+        imageSrc: "/images/hunch.webp",
         link: "https://medium.com/@vedantshah2001/the-hunch-story-building-a-serverless-ai-powered-prediction-app-for-friends-c256f751aeeb",
         alt: "Hunch project mockup",
       },
@@ -44,25 +67,23 @@ export const content = {
         alt: "CRUMS project mockup",
       },
       {
-        title: "ProjX",
-        year: "2023",
-        imageSrc: "/images/projx-mockup.webp",
-        link: "http://github.com/vedant-shah/projx",
-        alt: "ProjX project mockup",
-      },
-      {
         title: "SettleUp",
         year: "2023",
-        imageSrc: "/images/settleup.png",
+        imageSrc: "/images/settleup.webp",
         link: "http://github.com/vedant-shah/settleup",
         alt: "SettleUp project mockup",
       },
-    
     ],
   },
   experience: {
     title: "Experience",
     items: [
+      {
+        title: "AI Engineer",
+        company: "MontyCloud",
+        duration: "2026",
+        logoSrc: "/images/montycloud-logo.svg",
+      },
       {
         title: "AI Developer",
         company: "Oracle",
@@ -79,7 +100,7 @@ export const content = {
         title: "SDE Intern",
         company: "Neelitech",
         duration: "2022/23",
-        logoSrc: "/images/neeli-logo.png",
+        logoSrc: "/images/neeli-logo.webp",
       },
       {
         title: "Head of IT",
@@ -87,12 +108,12 @@ export const content = {
         duration: "2019",
         logoSrc: "/images/bmun-logo.png",
       },
-      {
-        title: "Summer Intern",
-        company: "MSRUAS",
-        duration: "2018",
-        logoSrc: "/images/msruas-logo.png",
-      },
+      // {
+      //   title: "Summer Intern",
+      //   company: "MSRUAS",
+      //   duration: "2018",
+      //   logoSrc: "/images/msruas-logo.webp",
+      // },
     ],
   },
   connect: {
@@ -117,4 +138,3 @@ export const content = {
     ],
   },
 };
-

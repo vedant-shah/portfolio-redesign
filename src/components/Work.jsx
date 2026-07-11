@@ -10,22 +10,36 @@ function ProjectCard({ project }) {
       href={project.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group">
-      <div className="overflow-hidden rounded-2xl relative">
+      className="group block transition-transform duration-300 active:scale-[0.99]">
+      <div className="relative overflow-hidden rounded-2xl">
         <div className="absolute inset-0 z-10 transition-colors duration-300 group-hover:bg-black/10 dark:group-hover:bg-white/10" />
-        <img
-          className="w-full transition-transform duration-700 ease-out group-hover:scale-105"
-          src={project.imageSrc}
-          alt={project.alt}
-          loading="lazy"
-        />
+        {project.imageSrc ? (
+          <img
+            className="w-full transition-transform duration-300 ease-out group-hover:scale-105"
+            src={project.imageSrc}
+            alt={project.alt}
+            loading="lazy"
+          />
+        ) : (
+          <div className="flex aspect-[3/2] w-full items-center justify-center overflow-hidden bg-[#dcdcdc] transition-transform duration-300 ease-out group-hover:scale-105 dark:bg-[#141418]">
+            {project.ascii ? (
+              <pre className="geist-mono select-none whitespace-pre text-[7px] leading-none text-[#fe7c7b] dark:text-[#ffcaca] sm:text-[10px] md:text-xs">
+                {project.ascii}
+              </pre>
+            ) : (
+              <span className="geist-mono px-6 text-center text-2xl text-[#fe7c7b] dark:text-[#ffcaca] sm:text-3xl md:text-4xl">
+                {project.title}
+              </span>
+            )}
+          </div>
+        )}
       </div>
-      <div className="flex items-center justify-between w-full my-4">
-        <h2 className="text-sm tracking-tight geist-mono sm:text-lg md:text-xl">
+      <div className="my-4 flex w-full items-center justify-between">
+        <h2 className="geist-mono text-sm sm:text-lg md:text-xl">
           {project.title}, {project.year}
         </h2>
-        <div className="flex items-center group/view">
-          <span className="geist-mono text-base tracking-tight transition-colors group-hover/view:text-[#fe7c7b] dark:group-hover/view:text-[#ffcaca] sm:text-lg md:text-xl">
+        <div className="group/view flex items-center">
+          <span className="geist-mono text-base transition-colors group-hover/view:text-[#fe7c7b] dark:group-hover/view:text-[#ffcaca] sm:text-lg md:text-xl">
             {work.viewLabel}
           </span>
           <RxArrowTopRight className="ml-2 transition-all duration-300 group-hover/view:-translate-y-0.5 group-hover/view:translate-x-0.5" />

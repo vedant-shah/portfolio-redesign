@@ -5,24 +5,24 @@ function Experience() {
   const { experience } = content;
   return (
     <div className="container relative mx-auto flex min-h-[100vh] w-[100vw] flex-col justify-center bg-[#e9e9e9] px-12 text-black  dark:bg-[#09090b] dark:text-white">
-      <div className="flex items-center justify-center w-full" style={{}}>
-        <div className="flex flex-col w-full">
+      <div className="flex w-full items-center justify-center" style={{}}>
+        <div className="flex w-full flex-col">
           <h1
-            className="my-12 title"
+            className="title my-12"
             style={{
               fontFamily: "SuisseIntl",
               fontSize: "6vw",
-              letterSpacing: "-3px",
+              letterSpacing: "-0.03em",
             }}>
             {experience.title}
           </h1>
           {experience.items.map((work, index) => (
             <React.Fragment key={index}>
-              <div className="flex items-center justify-between w-full my-8">
+              <div className="my-8 flex w-full items-center justify-between">
                 <div className="flex items-center ">
                   <img
                     src={work.logoSrc}
-                    className="inline rounded me-6 experience-logo"
+                    className="experience-logo me-6 inline rounded"
                     style={{ height: "64px", width: "64px" }}
                     alt={work.company}
                   />

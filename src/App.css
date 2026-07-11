@@ -21,14 +21,6 @@ body {
   display: none;
 }
 
-.inter {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings: "slnt" 0;
-}
-
 .overlay {
   position: fixed;
   width: 100vw;
@@ -39,19 +31,6 @@ body {
 .bar {
   width: 10vw;
   height: 105vh;
-}
-.counter {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  z-index: 1000;
-  font-size: 25vw;
-  font-family: "Generator Bold";
-  right: 15px;
-  top: 15px;
 }
 .counter-1 {
   position: fixed;
@@ -87,4 +66,15 @@ body {
 
 .container {
   overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

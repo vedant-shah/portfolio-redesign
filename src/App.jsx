@@ -5,73 +5,76 @@ import About from "./components/About";
 import Experience from "./components/Experience";
 import Work from "./components/Work";
 import Connect from "./components/Connect";
+import ScrollProgress from "./components/ScrollProgress";
 import { gsap } from "gsap";
 import { content } from "./config/content";
 
 function App() {
-
   useEffect(() => {
-    function startLoader() {
-      let counter = document.querySelector('.counter');
-      let current = 0;
+    const overlay = document.querySelector(".overlay");
+    const tagline = document.querySelector(".counter-1");
+    const bars = gsap.utils.toArray(".bar");
 
-      function updateCounter() {
-        current += Math.floor(Math.random() * 14) + 1;
-        if (current >= 100) {
-          current = 100;
-          return
-        }
-        counter.innerHTML = current + '%';
-        let delay = 30;
-        setTimeout(updateCounter, delay);
-      }
+    const reveal = () => {
+      overlay.style.display = "none";
+      tagline.style.display = "none";
+    };
 
-      updateCounter();
+    // Reduced motion: skip the intro entirely, show content immediately.
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (prefersReducedMotion) {
+      reveal();
+      return;
     }
 
-    startLoader();
-
-    gsap.to('.counter', 0.2, {
-      delay: 1.1,
-      opacity: 0,
-    });
-    gsap.to('.counter-1', 0.2, {
-      delay: 1.1,
-      opacity: 0,
-    });
-
-    gsap.to('.bar', 0.6, {
-      delay: 1.3,
-      height: 0,
-      stagger: {
-        amount: 0.25
+    const tl = gsap.timeline({ onComplete: reveal });
+    tl.to(tagline, { opacity: 0, duration: 0.2, delay: 0.35 });
+    tl.to(
+      bars,
+      {
+        height: 0,
+        duration: 0.5,
+        stagger: { amount: 0.15 },
+        ease: "power4.inOut",
       },
-      ease: 'power4.inOut',
-      onComplete: () => {
-        document.querySelector('.overlay').style.display = 'none';
-        document.querySelector('.counter').style.display = 'none';
-        document.querySelector('.counter-1').style.display = 'none';
-        document.querySelector('.bar').style.display = 'none';
-      }
-    });
+      "-=0.05",
+    );
+
+    // Let the visitor skip the intro the moment they show intent.
+    const skip = () => tl.progress(1);
+    const opts = { once: true, passive: true };
+    window.addEventListener("pointerdown", skip, opts);
+    window.addEventListener("keydown", skip, opts);
+    window.addEventListener("wheel", skip, opts);
+    window.addEventListener("touchmove", skip, opts);
+
+    return () => {
+      tl.kill();
+      window.removeEventListener("pointerdown", skip);
+      window.removeEventListener("keydown", skip);
+      window.removeEventListener("wheel", skip);
+      window.removeEventListener("touchmove", skip);
+    };
   }, []);
   return (
     <div className="w-[100vw] bg-[#e9e9e9] dark:bg-[#09090b]">
-      <h1 className="counter dark:text-[#bcbcc4] text-[#1a1a1a]">0</h1>
-      <h1 className="counter-1 dark:text-[#bcbcc4] text-[#1a1a1a]">
+      <ScrollProgress />
+      <h1 className="counter-1 text-[#1a1a1a] dark:text-[#bcbcc4]">
         {content.loader.tagline}
       </h1>
       <div className="overlay">
-        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
-        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
-        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
-        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
-        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
-        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
-        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
-        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
-        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
-        <div className="bar dark:bg-[#161617] bg-[#f6f6ee]"></div>
+        <div className="bar bg-[#f6f6ee] dark:bg-[#161617]"></div>
+        <div className="bar bg-[#f6f6ee] dark:bg-[#161617]"></div>
+        <div className="bar bg-[#f6f6ee] dark:bg-[#161617]"></div>
+        <div className="bar bg-[#f6f6ee] dark:bg-[#161617]"></div>
+        <div className="bar bg-[#f6f6ee] dark:bg-[#161617]"></div>
+        <div className="bar bg-[#f6f6ee] dark:bg-[#161617]"></div>
+        <div className="bar bg-[#f6f6ee] dark:bg-[#161617]"></div>
+        <div className="bar bg-[#f6f6ee] dark:bg-[#161617]"></div>
+        <div className="bar bg-[#f6f6ee] dark:bg-[#161617]"></div>
+        <div className="bar bg-[#f6f6ee] dark:bg-[#161617]"></div>
       </div>
       <Hero />
       <About />

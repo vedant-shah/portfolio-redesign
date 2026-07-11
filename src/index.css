@@ -5,28 +5,19 @@
 @font-face {
   font-family: "SuisseIntl";
   src: url("./assets/fonts/suisseintl-book-webfont.woff2");
-}
-@font-face {
-  font-family: "Archivo";
-  src: url("./assets/fonts/archivoblack-regular-webfont.woff2");
-}
-@font-face {
-  font-family: "PolySans";
-  src: url("./assets/fonts/polysans-webfont.woff2");
-}
-@font-face {
-  font-family: "Seg";
-  src: url("./assets/fonts/seguibl-webfont.woff2");
-}
-@font-face {
-  font-family: "RG";
-  src: url("./assets/fonts/rightgrotesk-webfont.woff2");
+  font-display: swap;
 }
 @font-face {
   font-family: "Generator Bold";
-  src: url("https://assets.website-files.com/6470f4e94ea1a1165d1eb1ad/6470f536abd315329bfeda71_Generator-Bold.woff")
-    format("woff");
+  src: url("./assets/fonts/generator-bold-webfont.woff") format("woff");
   font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("./assets/fonts/geist-mono-400.woff2") format("woff2");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }

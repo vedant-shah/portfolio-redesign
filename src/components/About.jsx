@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import SplitType from "split-type";
 import { content } from "../config/content";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,20 +10,26 @@ function About() {
   const { about } = content;
 
   useEffect(() => {
+    // Reduced motion: leave text and image at their resting state, no scroll effects.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
     try {
-      const splitTypes = document.querySelectorAll(".animate-text").forEach((word) => {
-        const text = new SplitType(word, { types: "words" });
-        return gsap.from(text.words, {
-          scrollTrigger: {
-            trigger: word,
-            start: "top 70%",
-            end: "top 20%",
-            scrub: true,
-          },
-          opacity: 0.4,
-          stagger: 0.2,
+      const splitTypes = document
+        .querySelectorAll(".animate-text")
+        .forEach((word) => {
+          const text = new SplitType(word, { types: "words" });
+          return gsap.from(text.words, {
+            scrollTrigger: {
+              trigger: word,
+              start: "top 70%",
+              end: "top 20%",
+              scrub: true,
+            },
+            opacity: 0.4,
+            stagger: 0.2,
+          });
         });
-      });
 
       const profile = document.querySelector(".profile");
       const growTl = gsap.timeline({
@@ -53,23 +60,23 @@ function About() {
       ref={sectionRef}
       className="container relative mx-auto flex min-h-screen items-center justify-center bg-[#e9e9e9] px-4 py-12 text-black dark:bg-[#09090b] dark:text-white sm:px-6 md:px-12">
       <div className="flex flex-col gap-8 md:flex-row md:gap-12">
-        <div className="flex items-center justify-center w-full md:w-1/2">
+        <div className="flex w-full items-center justify-center md:w-1/2">
           <div className="relative w-full max-w-md">
             <img
               src={about.image.src}
               alt={about.image.alt}
-              className="object-cover w-full h-auto profile rounded-xl"
+              className="profile h-auto w-full rounded-xl object-cover"
               loading="lazy"
             />
           </div>
         </div>
-        <div className="flex items-center w-full md:w-1/2">
-          <h1 className="text-lg animate-text geist-mono sm:text-xl md:text-xl lg:text-xl xl:text-2xl">
+        <div className="flex w-full items-center md:w-1/2">
+          <h1 className="animate-text geist-mono text-lg sm:text-xl md:text-xl lg:text-xl xl:text-2xl">
             {about.intro}
             <br />
-            <span className="block mt-4 text-zinc-400">
+            <span className="mt-4 block text-zinc-400">
               {about.outroMuted}{" "}
-              <span className="text-[#fe7c7b] dark:text-[#93ffcc]">
+              <span className="text-[#fe7c7b] dark:text-[#ffcaca]">
                 {about.outroHighlight}
               </span>
             </span>
