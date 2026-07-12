@@ -36,7 +36,7 @@ export const content = {
       src: "/images/pfp.webp",
       alt: "Vedant's profile picture",
     },
-    intro: `Hey, I'm Vedant. I'm ${age}, based in Bangalore, working as an AI Engineer at MontyCloud, and I've been freelancing and shipping products for the last 3–4 years. My philosophy is simple — tech is just a means to an end.`,
+    intro: `Hey, I'm Vedant. I'm ${age}, based in Bangalore, working as an AI Engineer at MontyCloud, and I've been freelancing and shipping products for the last few years. My philosophy is simple: tech is just a means to an end.`,
     outroMuted:
       "I don't claim to know every algorithm or tool out there, but that never stops me. Syntax can be Googled and logic figured out; what can't be taught is the obsession to get things done.",
     outroHighlight: "What I promise is High Agency.",

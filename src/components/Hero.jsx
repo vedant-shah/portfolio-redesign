@@ -10,7 +10,7 @@ function Hero() {
   const emailHref = `mailto:${hero.navCta.email}?subject=${emailSubject}`;
 
   return (
-    <div className="container relative mx-auto flex min-h-[100vh] flex-col bg-[#e9e9e9] p-6 text-black transition-colors duration-300 dark:bg-[#09090b] dark:text-white sm:p-6 md:p-12">
+    <div className="container relative mx-auto flex min-h-[100svh] flex-col bg-[#e9e9e9] p-6 text-black transition-colors duration-300 dark:bg-[#09090b] dark:text-white sm:p-6 md:p-12">
       <nav
         className="flex w-full items-center justify-between overflow-hidden"
         aria-label="Top Navigation">

@@ -29,7 +29,8 @@ function Experience() {
                   <h1
                     className="experience-text geist-mono text-xl"
                     style={{ textAlign: "start" }}>
-                    {work.company} - {work.title}
+                    <span className="font-bold">{work.company}</span> -{" "}
+                    {work.title}
                   </h1>
                 </div>
                 <div>

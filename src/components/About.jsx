@@ -46,6 +46,13 @@ function About() {
         scale: 0.9,
       });
 
+      // The mono font swaps in after this setup runs and shifts the text,
+      // leaving ScrollTrigger measuring stale offsets — on mobile the reveal
+      // then never fires. Recompute once fonts have settled.
+      if (document.fonts?.ready) {
+        document.fonts.ready.then(() => ScrollTrigger.refresh());
+      }
+
       return () => {
         splitTypes?.forEach((anim) => anim?.kill());
         growTl.kill();
@@ -74,7 +81,7 @@ function About() {
           <h1 className="animate-text geist-mono text-lg sm:text-xl md:text-xl lg:text-xl xl:text-2xl">
             {about.intro}
             <br />
-            <span className="mt-4 block text-zinc-400">
+            <span className="mt-4 block">
               {about.outroMuted}{" "}
               <span className="text-[#fe7c7b] dark:text-[#ffcaca]">
                 {about.outroHighlight}

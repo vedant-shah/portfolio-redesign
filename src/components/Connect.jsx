@@ -52,15 +52,10 @@ function Connect() {
             {connect.email}
           </a>
         </div>
-        <div className="grid w-full grid-cols-2 gap-y-6 overflow-hidden sm:gap-y-8">
-          <div className="flex justify-around overflow-hidden">
-            <SocialLink {...connect.socials[0]} />
-            <SocialLink {...connect.socials[1]} />
-          </div>
-          <div className="flex justify-around overflow-hidden">
-            <SocialLink {...connect.socials[2]} />
-            <SocialLink {...connect.socials[3]} />
-          </div>
+        <div className="flex w-full items-center justify-between overflow-hidden">
+          {connect.socials.map((social) => (
+            <SocialLink key={social.name} {...social} />
+          ))}
         </div>
       </div>
     </section>
