@@ -1,9 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import SplitType from "split-type";
 import { content } from "../config/content";
-gsap.registerPlugin(ScrollTrigger);
 
 function About() {
   const sectionRef = useRef(null);
@@ -15,47 +12,30 @@ function About() {
       return;
     }
     try {
-      const splitTypes = document
-        .querySelectorAll(".animate-text")
-        .forEach((word) => {
-          const text = new SplitType(word, { types: "words" });
-          return gsap.from(text.words, {
-            scrollTrigger: {
-              trigger: word,
-              start: "top 70%",
-              end: "top 20%",
-              scrub: true,
-            },
-            opacity: 0.4,
-            stagger: 0.2,
-          });
+      const section = sectionRef.current;
+      if (!section) return;
+
+      // Split the paragraph into words and stagger each word's CSS
+      // transition. The reveal itself is driven by IntersectionObserver +
+      // the `about-inview` class (see App.css) — unlike scroll events,
+      // intersection callbacks fire reliably during 1-finger touch drags.
+      section.querySelectorAll(".animate-text").forEach((el) => {
+        const text = new SplitType(el, { types: "words" });
+        text.words?.forEach((word, i) => {
+          word.style.transitionDelay = `${i * 18}ms`;
         });
+      });
 
-      const profile = document.querySelector(".profile");
-      const growTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".profile",
-          start: "top 70%",
-          end: "top 20%",
-          scrub: true,
-          ease: "power1.out",
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          section.classList.toggle("about-inview", entry.isIntersecting);
         },
-      });
-
-      growTl.to(".profile", {
-        scale: 0.9,
-      });
-
-      // The mono font swaps in after this setup runs and shifts the text,
-      // leaving ScrollTrigger measuring stale offsets — on mobile the reveal
-      // then never fires. Recompute once fonts have settled.
-      if (document.fonts?.ready) {
-        document.fonts.ready.then(() => ScrollTrigger.refresh());
-      }
+        { threshold: 0.35 },
+      );
+      observer.observe(section);
 
       return () => {
-        splitTypes?.forEach((anim) => anim?.kill());
-        growTl.kill();
+        observer.disconnect();
       };
     } catch (err) {
       console.error("Animation setup failed:", err);
@@ -72,7 +52,7 @@ function About() {
             <img
               src={about.image.src}
               alt={about.image.alt}
-              className="profile h-auto w-full rounded-xl object-cover"
+              className="profile aspect-square w-full rounded-xl object-cover"
               loading="lazy"
             />
           </div>

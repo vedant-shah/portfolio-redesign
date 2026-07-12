@@ -47,21 +47,25 @@ body {
   font-family: "Generator Bold";
 }
 
-#set-arrow,
-#wtn-arrow,
-#crums-arrow,
-#projx-arrow {
-  display: none;
-}
-#set-container:hover #set-arrow,
-#wtn-container:hover #wtn-arrow,
-#crums-container:hover #crums-arrow,
-#projx-container:hover #projx-arrow {
-  display: block;
-}
-
 .word {
   overflow: hidden !important;
+}
+
+/* About reveal: driven by IntersectionObserver toggling .about-inview
+   (see About.jsx). Words start dim and brighten with a per-word
+   transition-delay set inline; the photo settles from 1 to 0.9 scale. */
+.animate-text .word {
+  opacity: 0.4;
+  transition: opacity 0.35s ease-out;
+}
+.about-inview .animate-text .word {
+  opacity: 1;
+}
+.profile {
+  transition: transform 0.5s ease-out;
+}
+.about-inview .profile {
+  transform: scale(0.9);
 }
 
 .container {
